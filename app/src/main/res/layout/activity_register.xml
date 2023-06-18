@@ -28,14 +28,15 @@
 
         <!-- EditText -->
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/etRegisterEmail"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="Email" />
+            android:hint="Email"
+            android:textColorHint="@color/purple_500"/>
 
         <!-- EditText -->
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/etRegisterPassword"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:hint="Password"
