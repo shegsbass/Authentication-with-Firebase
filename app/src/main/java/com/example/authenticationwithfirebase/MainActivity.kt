@@ -3,6 +3,7 @@ package com.example.authenticationwithfirebase
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import com.example.authenticationwithfirebase.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -18,6 +19,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
+
+        val email = intent.getStringExtra("email")
+        val displayName = intent.getStringExtra("name")
+
+        findViewById<TextView>(R.id.tvUserInfo).text = email + "\n" + displayName
 
         binding.btnLogout.setOnClickListener {
             firebaseAuth.signOut()
