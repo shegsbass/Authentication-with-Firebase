@@ -3,10 +3,12 @@ package com.example.authenticationwithfirebase
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.authenticationwithfirebase.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,8 +24,13 @@ class MainActivity : AppCompatActivity() {
 
         val email = intent.getStringExtra("email")
         val displayName = intent.getStringExtra("name")
+        val photo = intent.getStringExtra("photo")
 
         findViewById<TextView>(R.id.tvUserInfo).text = email + "\n" + displayName
+
+        val profilePhotoView = findViewById<ImageView>(R.id.ivUserPhoto)
+        Picasso.get().load(photo).into(profilePhotoView)
+
 
         binding.btnLogout.setOnClickListener {
             firebaseAuth.signOut()

@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.authenticationwithfirebase.databinding.ActivityLoginBinding
@@ -14,6 +15,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.squareup.picasso.Picasso
 
 class LoginActivity : AppCompatActivity() {
 
@@ -101,6 +103,7 @@ class LoginActivity : AppCompatActivity() {
                 val intent: Intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("email", account.email)
                 intent.putExtra("name", account.displayName)
+                intent.putExtra("photo", account.photoUrl.toString())
                 startActivity(intent)
 
             }else{
